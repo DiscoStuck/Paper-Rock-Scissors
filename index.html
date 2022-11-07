@@ -4,102 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="game.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <script>
-        /* Random computer choice function */
-        function computerChoice(){
-            let number = Math.floor(Math.random() * 3 + 1);
-
-            
-            if (number === 1){
-                return ("rock");
-            }
-            else if (number === 2) {
-                return ("paper");
-            }
-            else{
-                return ("scissors");
-             }
-
-        };
-
-        /* Declare winner function */
-        function printWinner(player, computer){
-
-            function winner(player, computer){
-                if (computer === player){
-                    return("draw")
-                }
-                else if (player === "rock" && computer === "scissors"){
-                    return ("player")
-                }
-                else if (player === "rock" && computer === "paper"){
-                    return ("computer")
-                }
-                else if (player === "paper" && computer === "rock"){
-                    return ("player")
-                }
-                else if (player === "paper" && computer === "scissors"){
-                    return ("computer")
-                }
-                else if (player === "scissors" && computer === "paper"){
-                    return ("player")
-                }
-                else{
-                    return ("computer")
-                }
-            }
-
-            if (winner(player,computer) === "draw"){
-                console.log ("It's a draw. Both players have " + player)
-                return("draw")
-            }
-            else if (winner(player, computer) === "player"){
-                console.log ("You win. " + player + " beats " + computer)
-                return ("player")
-            }
-            else{
-                console.log ("You lose. " + computer + " beats " + player)
-                return ("computer")
-            }
-
-
-        } 
-
-        /* Game of 5 rounds */
-
-        function game(){
-
-            let playerScore = 0;
-            let computerScore = 0;
-
-            for (let i = 0; i < 5; i++){
-            let playerChoice = prompt("Choose rock, paper or scissors", "")
-            let roundResult = printWinner(playerChoice, computerChoice())
-                if(roundResult === "player"){
-                    playerScore++
-                }
-                else if (roundResult === "computer"){
-                    computerScore ++
-                }
-            }
-
-            if (playerScore > computerScore){
-                alert("Final score is: Player " + playerScore + " // Computer " + computerScore + ". You win.")
-            }
-            else if (playerScore < computerScore){
-                alert("Final score is: Player " + playerScore + " // Computer " + computerScore + ". You lose.")
-            }
-            else{
-                alert("Final score is: Player " + playerScore + " // Computer " + computerScore + ". It's a draw.")
-            }
-        }
-
-        
-        game();
-
-    </script>
+<div class="buttons">
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+</div>
+<div class="textOutput">
+    <p class="result"></p>
+    <p class="score"></p>
+    <p class="winner"></p>
+</div>
 </body>
 </html>
